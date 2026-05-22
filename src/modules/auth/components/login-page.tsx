@@ -11,11 +11,11 @@ import {
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import SvgIcon from '@/components/ui/svg-icon';
 
 import { PasswordInput } from '../../../components/ui/password-input';
 import { type LoginFormValues, loginSchema } from '../schemas';
 import { AuthLayout } from './auth-layout';
-import { GoogleIcon } from './google-icon';
 
 export const LoginPage = () => {
   const form = useForm<LoginFormValues>({
@@ -111,7 +111,7 @@ export const LoginPage = () => {
         className="w-full"
         onClick={handleGoogleAuth}
       >
-        <GoogleIcon />
+        <SvgIcon iconType="google" />
         Continue with Google
       </Button>
 
