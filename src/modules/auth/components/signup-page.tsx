@@ -20,7 +20,13 @@ import { AuthLayout } from './auth-layout';
 export const SignupPage = () => {
   const form = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
-    defaultValues: { email: '', password: '', confirmPassword: '' },
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
   });
 
   const onSubmit = (_values: SignupFormValues): void => {};
@@ -38,6 +44,50 @@ export const SignupPage = () => {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FieldGroup>
+          <div className="grid grid-cols-2 gap-4">
+            <Controller
+              name="firstName"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="signup-first-name">
+                    First name
+                  </FieldLabel>
+                  <Input
+                    id="signup-first-name"
+                    type="text"
+                    placeholder="John"
+                    aria-invalid={fieldState.invalid}
+                    {...field}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+
+            <Controller
+              name="lastName"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="signup-last-name">Last name</FieldLabel>
+                  <Input
+                    id="signup-last-name"
+                    type="text"
+                    placeholder="Doe"
+                    aria-invalid={fieldState.invalid}
+                    {...field}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+          </div>
+
           <Controller
             name="email"
             control={form.control}
