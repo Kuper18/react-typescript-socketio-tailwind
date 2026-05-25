@@ -5,9 +5,10 @@ import axios, {
 } from 'axios';
 
 import { AUTH_API_ROUTES } from '@/constants/api-routes';
+import { CLIENT_ROUTES } from '@/constants/client-routes';
 import router from '@/routes';
 
-const API_CONFIG: AxiosRequestConfig = {
+export const API_CONFIG: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
 } as const;
@@ -47,7 +48,7 @@ async function handleError(error: AxiosError) {
       try {
         await axios.post(AUTH_API_ROUTES.refreshToken, {}, API_CONFIG);
       } catch (error) {
-        router.navigate('/login');
+        router.navigate(CLIENT_ROUTES.login);
         throw error;
       } finally {
         isRefreshing = false;
