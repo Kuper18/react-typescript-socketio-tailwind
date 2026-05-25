@@ -1,6 +1,6 @@
 import React, { type JSX, type SVGProps, useMemo } from 'react';
 
-import GoogleIconSvg from './google-icon.svg?react';
+import GoogleIconSvg from '@/assets/google-icon.svg?react';
 
 type IconType = 'google';
 
