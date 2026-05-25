@@ -52,7 +52,6 @@ src/
 ├─ hooks/        # Reusable hooks (TanStack Query + Socket.IO subscriptions)
 ├─ lib/
 │  ├─ axios-instance.ts   # Configured Axios client
-│  ├─ navigation-helper.ts # Safe router navigation
 │  ├─ react-query.ts      # Query client setup
 │  ├─ notify.tsx          # Custom toast notifications
 │  └─ ...
