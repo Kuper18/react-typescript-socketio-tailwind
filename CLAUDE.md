@@ -21,6 +21,11 @@ Guidance for working in this repository — a real-time chat application.
 - Named exports inside the file remain PascalCase (components) or camelCase (functions/hooks) as usual.
 - Prefer **arrow functions** for handlers and callbacks inside components; use `function` declarations only when necessary (e.g. hoisting, recursion).
 
+## Component Conventions
+
+- **Default export** — export components, hooks, and functions as `export default` when a file contains a single entity. Use named exports only when a file exports multiple entities (e.g. a types barrel or a constants file).
+- **Type with `React.FC<Props>`** — annotate a component with `React.FC<Props>` only when it accepts props. Components with no props need no type annotation.
+
 ## TypeScript Rules (Strict — Non-Negotiable)
 
 - **No `any`.** Use `unknown` and narrow, or define a proper type. If you reach for `any`, stop and model the type instead.

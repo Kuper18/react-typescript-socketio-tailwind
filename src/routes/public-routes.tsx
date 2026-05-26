@@ -2,8 +2,9 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import { CLIENT_ROUTES } from '@/constants/client-routes';
-import { LoginPage } from '@/modules/auth/components/login-page';
-import { SignupPage } from '@/modules/auth/components/signup-page';
+import LoginPage from '@/modules/auth/components/login-page';
+import SignupPage from '@/modules/auth/components/signup-page';
+import VerifyEmailPage from '@/modules/auth/components/verify-email-page';
 
 const PublicGuard = () => {
   const isAuthenticated = false;
@@ -21,6 +22,7 @@ export const publicRoutes: RouteObject[] = [
     children: [
       { path: CLIENT_ROUTES.login, Component: LoginPage },
       { path: CLIENT_ROUTES.signup, Component: SignupPage },
+      { path: CLIENT_ROUTES.verifyEmail, Component: VerifyEmailPage },
     ],
   },
 ];
