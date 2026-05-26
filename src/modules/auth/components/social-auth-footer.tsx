@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import SvgIcon from '@/components/ui/svg-icon';
 
+import { AuthApi } from '../api';
+
 type SocialAuthFooterProps = {
   footerText: string;
   footerLinkText: string;
@@ -17,7 +19,9 @@ const SocialAuthFooter: React.FC<SocialAuthFooterProps> = ({
   footerLinkText,
   footerLinkTo,
 }) => {
-  const handleGoogleAuth = (): void => {};
+  const handleGoogleAuth = (): void => {
+    AuthApi.googleAuth();
+  };
 
   return (
     <>

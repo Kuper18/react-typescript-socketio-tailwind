@@ -88,9 +88,7 @@ export class AuthApi {
     return response.data;
   }
 
-  static async googleAuth() {
-    const response = await axios.get(AUTH_API_ROUTES.googleAuth, API_CONFIG);
-
-    return response.data;
+  static googleAuth(): void {
+    window.location.href = `${API_CONFIG.baseURL}${AUTH_API_ROUTES.googleAuth}`;
   }
 }
