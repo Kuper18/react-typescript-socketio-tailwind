@@ -1,8 +1,8 @@
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
-import { AuthLayout } from './auth-layout';
-import ForgotPasswordForm from './forgot-password-form';
-import SocialAuthFooter from './social-auth-footer';
+import AuthLayout from '../components/auth-layout';
+import ForgotPasswordForm from '../components/forgot-password-form';
+import SocialAuthFooter from '../components/social-auth-footer';
 
 const ForgotPasswordPage = () => {
   return (

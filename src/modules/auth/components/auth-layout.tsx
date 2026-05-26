@@ -6,11 +6,7 @@ type AuthLayoutProps = {
   children: ReactNode;
 };
 
-export const AuthLayout = ({
-  title,
-  description,
-  children,
-}: AuthLayoutProps) => {
+const AuthLayout = ({ title, description, children }: AuthLayoutProps) => {
   return (
     <main className="flex min-h-svh items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-6">
@@ -25,3 +21,5 @@ export const AuthLayout = ({
     </main>
   );
 };
+
+export default AuthLayout;

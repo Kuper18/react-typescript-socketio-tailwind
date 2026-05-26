@@ -1,8 +1,8 @@
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
-import { AuthLayout } from './auth-layout';
-import ResendEmailForm from './resend-email-form';
-import SocialAuthFooter from './social-auth-footer';
+import AuthLayout from '../components/auth-layout';
+import ResendEmailForm from '../components/resend-email-form';
+import SocialAuthFooter from '../components/social-auth-footer';
 
 const ResendEmailPage = () => {
   return (

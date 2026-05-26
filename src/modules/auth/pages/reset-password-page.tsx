@@ -4,8 +4,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
-import { AuthLayout } from './auth-layout';
-import ResetPasswordForm from './reset-password-form';
+import AuthLayout from '../components/auth-layout';
+import ResetPasswordForm from '../components/reset-password-form';
 
 const ResetPasswordPage = () => {
   const [searchParams] = useSearchParams();

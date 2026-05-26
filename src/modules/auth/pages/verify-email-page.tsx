@@ -4,8 +4,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
+import AuthLayout from '../components/auth-layout';
 import useVerifyEmail from '../hooks/use-verify-email';
-import { AuthLayout } from './auth-layout';
 
 const VerifyEmailPage = () => {
   const [searchParams] = useSearchParams();

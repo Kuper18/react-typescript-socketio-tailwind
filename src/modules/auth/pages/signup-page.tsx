@@ -1,8 +1,8 @@
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
-import { AuthLayout } from './auth-layout';
-import { SignupForm } from './signup-form';
-import SocialAuthFooter from './social-auth-footer';
+import AuthLayout from '../components/auth-layout';
+import { SignupForm } from '../components/signup-form';
+import SocialAuthFooter from '../components/social-auth-footer';
 
 const SignupPage = () => {
   return (

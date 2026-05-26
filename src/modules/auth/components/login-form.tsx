@@ -17,7 +17,7 @@ import { PasswordInput } from '../../../components/ui/password-input';
 import useLogin from '../hooks/use-login';
 import { type LoginFormValues, loginSchema } from '../schemas';
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: '', password: '' },
@@ -101,3 +101,5 @@ export const LoginForm = () => {
     </form>
   );
 };
+
+export default LoginForm;
