@@ -66,8 +66,11 @@ export const LoginForm = () => {
                   variant="link"
                   className="h-auto p-0 text-xs font-normal
                     text-muted-foreground"
+                  asChild
                 >
-                  Forgot password?
+                  <Link to={CLIENT_ROUTES.forgotPassword}>
+                    Forgot password?
+                  </Link>
                 </Button>
               </div>
               <PasswordInput

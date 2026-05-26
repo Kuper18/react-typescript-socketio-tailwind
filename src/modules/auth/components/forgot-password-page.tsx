@@ -1,16 +1,16 @@
 import { CLIENT_ROUTES } from '@/constants/client-routes';
 
 import { AuthLayout } from './auth-layout';
-import ResendEmailForm from './resend-email-form';
+import ForgotPasswordForm from './forgot-password-form';
 import SocialAuthFooter from './social-auth-footer';
 
-const ResendEmailPage = () => {
+const ForgotPasswordPage = () => {
   return (
     <AuthLayout
-      title="Resend verification email"
-      description="Enter your email and we'll send you a new verification link"
+      title="Forgot password"
+      description="Enter your email and we'll send you a reset link"
     >
-      <ResendEmailForm />
+      <ForgotPasswordForm />
       <SocialAuthFooter
         footerText="Remember your password?"
         footerLinkText="Sign in"
@@ -20,4 +20,4 @@ const ResendEmailPage = () => {
   );
 };
 
-export default ResendEmailPage;
+export default ForgotPasswordPage;

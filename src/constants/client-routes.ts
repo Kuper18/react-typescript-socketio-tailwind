@@ -4,4 +4,6 @@ export const CLIENT_ROUTES = {
   signup: '/signup',
   verifyEmail: '/verify-email',
   resendEmail: '/resend-email',
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
 } as const;
