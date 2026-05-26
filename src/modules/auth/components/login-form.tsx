@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -9,6 +10,8 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
+import { CLIENT_ROUTES } from '@/constants/client-routes';
 
 import { PasswordInput } from '../../../components/ui/password-input';
 import useLogin from '../hooks/use-login';
@@ -80,6 +83,16 @@ export const LoginForm = () => {
 
         <Button type="submit" className="w-full" disabled={isPending}>
           Sign in
+          {isPending && <Spinner />}
+        </Button>
+
+        <Button
+          type="button"
+          variant="link"
+          className="h-auto w-fit mx-auto p-0 text-xs font-normal text-primary"
+          asChild
+        >
+          <Link to={CLIENT_ROUTES.resendEmail}>Verify email</Link>
         </Button>
       </FieldGroup>
     </form>

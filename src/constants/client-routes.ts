@@ -3,4 +3,5 @@ export const CLIENT_ROUTES = {
   login: '/login',
   signup: '/signup',
   verifyEmail: '/verify-email',
+  resendEmail: '/resend-email',
 } as const;

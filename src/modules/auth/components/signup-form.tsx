@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -9,12 +10,18 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
+import { CLIENT_ROUTES } from '@/constants/client-routes';
 
 import { PasswordInput } from '../../../components/ui/password-input';
+import useCooldown from '../hooks/use-cooldown';
 import useSignup from '../hooks/use-signup';
 import { type SignupFormValues, signupSchema } from '../schemas';
 
 export const SignupForm = () => {
+  const { cooldown, triggerCooldown } = useCooldown();
+
+  const navigate = useNavigate();
   const form = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -26,13 +33,13 @@ export const SignupForm = () => {
     },
   });
 
-  const { mutate: signup, isPending } = useSignup(form);
+  const { mutate: signup, isPending, isSuccess } = useSignup(form);
 
   const onSubmit = ({
     confirmPassword: _,
     ...data
   }: SignupFormValues): void => {
-    signup(data);
+    signup(data, { onSuccess: () => triggerCooldown() });
   };
 
   return (
@@ -140,7 +147,23 @@ export const SignupForm = () => {
 
         <Button type="submit" className="w-full" disabled={isPending}>
           Create account
+          {isPending && <Spinner />}
         </Button>
+
+        {isSuccess && (
+          <p className="text-center text-sm text-muted-foreground">
+            Didn't receive a verification email?{' '}
+            <Button
+              type="button"
+              variant="link"
+              className="h-auto p-0 text-sm font-normal"
+              disabled={cooldown > 0}
+              onClick={() => navigate(CLIENT_ROUTES.resendEmail)}
+            >
+              Resend it {cooldown > 0 && `(${cooldown}s)`}
+            </Button>
+          </p>
+        )}
       </FieldGroup>
     </form>
   );

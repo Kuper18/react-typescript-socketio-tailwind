@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+const emailSchema = z.email('Invalid email address');
+
 const nameSchema = (name: string) =>
   z
     .string()
@@ -12,7 +14,7 @@ const passwordSchema = z
   .max(20, 'Password must be at most 20 characters');
 
 export const loginSchema = z.object({
-  email: z.email('Invalid email address'),
+  email: emailSchema,
   password: passwordSchema,
 });
 
@@ -22,7 +24,7 @@ export const signupSchema = z
   .object({
     firstName: nameSchema('First name'),
     lastName: nameSchema('Last name'),
-    email: z.email('Invalid email address'),
+    email: emailSchema,
     password: passwordSchema,
     confirmPassword: z.string(),
   })
@@ -32,3 +34,9 @@ export const signupSchema = z
   });
 
 export type SignupFormValues = z.infer<typeof signupSchema>;
+
+export const resendEmailSchema = z.object({
+  email: emailSchema,
+});
+
+export type ResendEmailFormValues = z.infer<typeof resendEmailSchema>;
