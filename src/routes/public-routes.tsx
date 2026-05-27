@@ -2,6 +2,7 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import { CLIENT_ROUTES } from '@/constants/client-routes';
+import useCurrentUser from '@/hooks/use-current-user';
 import ForgotPasswordPage from '@/modules/auth/pages/forgot-password-page';
 import LoginPage from '@/modules/auth/pages/login-page';
 import ResendEmailPage from '@/modules/auth/pages/resend-email-page';
@@ -9,10 +10,14 @@ import ResetPasswordPage from '@/modules/auth/pages/reset-password-page';
 import SignupPage from '@/modules/auth/pages/signup-page';
 import VerifyEmailPage from '@/modules/auth/pages/verify-email-page';
 
-const PublicGuard = () => {
-  const isAuthenticated = false;
+import AppSplash from '../components/shared/app-splash';
 
-  return isAuthenticated ? (
+const PublicGuard = () => {
+  const { currentUser, isPending } = useCurrentUser();
+
+  if (isPending) return <AppSplash />;
+
+  return currentUser ? (
     <Navigate to={CLIENT_ROUTES.home} replace />
   ) : (
     <Outlet />

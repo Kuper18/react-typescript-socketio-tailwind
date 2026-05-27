@@ -6,6 +6,8 @@ import axios, {
 
 import { AUTH_API_ROUTES } from '@/constants/api-routes';
 import { CLIENT_ROUTES } from '@/constants/client-routes';
+import { USER_QUERY_KEYS } from '@/constants/query-keys';
+import queryClient from '@/lib/react-query';
 import router from '@/routes';
 
 export const API_CONFIG: AxiosRequestConfig = {
@@ -48,6 +50,7 @@ async function handleError(error: AxiosError) {
       try {
         await axios.post(AUTH_API_ROUTES.refreshToken, {}, API_CONFIG);
       } catch (error) {
+        queryClient.setQueryData([USER_QUERY_KEYS.currentUser], null);
         router.navigate(CLIENT_ROUTES.login);
         throw error;
       } finally {

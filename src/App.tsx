@@ -2,8 +2,8 @@ import { RouterProvider } from 'react-router-dom';
 
 import router from '@/routes/index';
 
-import { ThemeProvider } from './components/theme-provider';
 import QueryClientProvider from './providers/query-client-provider';
+import { ThemeProvider } from './providers/theme-provider';
 
 export const App = () => {
   return (

@@ -9,3 +9,7 @@ export const AUTH_API_ROUTES = {
   resetPassword: '/auth/reset-password',
   googleAuth: '/auth/google',
 } as const;
+
+export const USER_API_ROUTES = {
+  getCurrentUser: '/users/me',
+} as const;
