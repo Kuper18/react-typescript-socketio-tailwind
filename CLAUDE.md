@@ -15,6 +15,17 @@ Guidance for working in this repository — a real-time chat application.
 - **React Hook Form** — form state management and submission handling
 - **Zod** — schema declaration and runtime validation; infer TypeScript types from schemas
 
+## File Naming
+
+- All files use **kebab-case**: `password-input.tsx`, `login-page.tsx`, `auth-api.ts`.
+- Named exports inside the file remain PascalCase (components) or camelCase (functions/hooks) as usual.
+- Prefer **arrow functions** for handlers and callbacks inside components; use `function` declarations only when necessary (e.g. hoisting, recursion).
+
+## Component Conventions
+
+- **Default export** — export components, hooks, and functions as `export default` when a file contains a single entity. Use named exports only when a file exports multiple entities (e.g. a types barrel or a constants file).
+- **Type with `React.FC<Props>`** — annotate a component with `React.FC<Props>` only when it accepts props. Components with no props need no type annotation.
+
 ## TypeScript Rules (Strict — Non-Negotiable)
 
 - **No `any`.** Use `unknown` and narrow, or define a proper type. If you reach for `any`, stop and model the type instead.
@@ -46,10 +57,8 @@ src/
 ├─ hooks/        # Reusable hooks (TanStack Query + Socket.IO subscriptions)
 ├─ lib/
 │  ├─ axios-instance.ts   # Configured Axios client
-│  ├─ navigation-helper.ts # Safe router navigation
 │  ├─ react-query.ts      # Query client setup
 │  ├─ notify.tsx          # Custom toast notifications
-│  ├─ with-auth.tsx       # Authentication HOC
 │  └─ ...
 ├─ modules/      # Feature-based modules (auth/, chat/, etc.)
 │  └─ chat/      # Each module is self-contained and mirrors src/ locally:
@@ -90,6 +99,14 @@ src/
 - Use Tailwind utility classes; avoid inline styles and ad-hoc CSS files.
 - Compose UI from shadcn/ui components before building custom ones.
 - Keep class lists readable; extract repeated combinations into components, not string constants.
+
+## Markup & Accessibility
+
+- Use semantic HTML elements (`<main>`, `<section>`, `<article>`, `<nav>`, `<header>`, `<footer>`, `<form>`, `<button>`, etc.). Use `<div>` only as a layout wrapper with no semantic meaning.
+- Always define accessibility attributes: `aria-label`, `aria-labelledby`, `aria-describedby`, `aria-invalid`, `aria-live`, `role` where applicable.
+- Every interactive element must be keyboard-accessible and have a visible focus state.
+- Images require `alt`; decorative images use `alt=""` and `aria-hidden="true"`.
+- Form inputs must have an associated `<label>` (via `htmlFor` or wrapping).
 
 ---
 

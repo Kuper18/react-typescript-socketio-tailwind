@@ -1,0 +1,26 @@
+<svg width="60" height="60" viewBox="0 0 320 320" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Chat app icon</title>
+<desc>A rounded square purple speech bubble with a downward tail and a white horizontal tilde wave.</desc>
+<defs>
+<linearGradient id="bubbleGrad" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#C77DFF"/>
+<stop offset="100%" stop-color="#8A00F0"/>
+</linearGradient>
+</defs>
+<path d="M95 40
+H225
+A50 50 0 0 1 275 90
+V210
+A50 50 0 0 1 225 260
+H120
+L70 300
+V260
+A50 50 0 0 1 45 215
+V90
+A50 50 0 0 1 95 40 Z"
+fill="url(#bubbleGrad)"/>
+<path d="M88 165
+C112 132 140 132 160 158
+C180 184 208 184 232 151"
+fill="none" stroke="#F7EEFF" stroke-width="26" stroke-linecap="round"/>
+</svg>
